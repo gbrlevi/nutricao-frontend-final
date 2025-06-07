@@ -5,6 +5,7 @@ export interface Usuario {
   email: string
   role: "nutricionista" | "paciente"
   nutricionista_id?: string
+  data_criacao?: string
 }
 
 export interface UsuarioCreate {
@@ -12,12 +13,14 @@ export interface UsuarioCreate {
   email: string
   role: "nutricionista" | "paciente"
   nutricionista_id?: string
+  data_criacao?: string
 }
 
 export interface UsuarioUpdate {
   nome?: string
   email?: string
   nutricionista_id?: string
+  data_criacao?: string
 }
 
 // --- Planos Alimentares ---
@@ -67,6 +70,7 @@ export interface Receita {
   modoPreparo: string[]
   nutricionistaId: string
   pacienteId: string
+  data_criacao?: string
 }
 
 export interface ReceitaCreate {
@@ -77,4 +81,5 @@ export interface ReceitaCreate {
   modoPreparo: string[]
   nutricionistaId: string
   pacienteId: string
+  data_criacao?: string
 }

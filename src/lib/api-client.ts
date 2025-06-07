@@ -1,9 +1,9 @@
 // Configuração das URLs base dos microserviços
 const API_BASE_URLS = {
-  usuarios: "http://localhost:3001",
-  planos: "https://python-microservice-production-33dc.up.railway.app/",
-  receitas: "http://localhost:8080",
-}
+    usuarios: process.env.NEXT_PUBLIC_USUARIOS_API_URL || 'http://localhost:3001',
+    planos: process.env.NEXT_PUBLIC_PLANOS_API_URL || 'https://python-microservice-production-33dc.up.railway.app',
+    receitas: process.env.NEXT_PUBLIC_RECEITAS_API_URL || 'http://localhost:8080',
+};
 
 type ServiceName = keyof typeof API_BASE_URLS
 
