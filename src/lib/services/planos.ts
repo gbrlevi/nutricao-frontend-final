@@ -10,7 +10,7 @@ import type {
 } from '../models';
 
 const serviceName = 'planos';
-const endpointBase = '/planos';
+const endpointBase = '/planos/';
 
 // --- Função auxiliar para mapear _id para id ---
 // Ela pode ser usada para um objeto ou para cada objeto em um array
