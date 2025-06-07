@@ -10,7 +10,7 @@ import type {
 } from '../models';
 
 const serviceName = 'planos';
-const endpointBase = '/planos';
+const endpointBase = '/planos/';
 
 // --- Função auxiliar para mapear _id para id ---
 // Ela pode ser usada para um objeto ou para cada objeto em um array
@@ -32,7 +32,7 @@ export const getAllPlanosMestre = async (): Promise<PlanoMestre[]> => {
 
 // DEPOIS (CORRETO)
 export const getPlanoMestreComItens = async (id: string): Promise<PlanoMestreComItens | null> => {
-    const rawData = await fetchAPI<any>(serviceName, `${endpointBase}/${id}`);
+    const rawData = await fetchAPI<any>(serviceName, `${endpointBase}${id}`);
     
     if (!rawData) return null; 
 
@@ -52,7 +52,7 @@ export const createPlanoMestre = async (data: PlanoMestreCreate): Promise<PlanoM
 };
 
 export const updatePlanoMestre = async (id: string, data: Partial<PlanoMestreCreate>): Promise<PlanoMestre> => {
-    const rawData = await fetchAPI<any>(serviceName, `${endpointBase}/${id}`, { 
+    const rawData = await fetchAPI<any>(serviceName, `${endpointBase}${id}`, { 
         method: 'PUT', 
         body: JSON.stringify(data) 
     });
@@ -60,25 +60,25 @@ export const updatePlanoMestre = async (id: string, data: Partial<PlanoMestreCre
 };
 
 export const deletePlanoMestre = (id: string): Promise<null> => {
-    return fetchAPI<null>(serviceName, `${endpointBase}/${id}`, { method: 'DELETE' });
+    return fetchAPI<null>(serviceName, `${endpointBase}${id}`, { method: 'DELETE' });
 };
 
 
 // === Funções para Itens de Plano ===
 
 export const getItensDoPlano = async (planoMestreId: string): Promise<ItemPlano[]> => {
-    const rawData = await fetchAPI<any[]>(serviceName, `${endpointBase}/${planoMestreId}/itens`);
+    const rawData = await fetchAPI<any[]>(serviceName, `${endpointBase}${planoMestreId}/itens`);
     if (!rawData) return [];
     return rawData.map(mapId);
 };
 
 export const getItemPlanoById = async (itemId: string): Promise<ItemPlano> => {
-    const rawData = await fetchAPI<any>(serviceName, `${endpointBase}/itens/${itemId}`);
+    const rawData = await fetchAPI<any>(serviceName, `${endpointBase}itens/${itemId}`);
     return mapId(rawData);
 };
 
 export const createItemPlano = async (data: ItemPlanoCreate): Promise<ItemPlano> => {
-    const rawData = await fetchAPI<any>(serviceName, `${endpointBase}/itens/`, { 
+    const rawData = await fetchAPI<any>(serviceName, `${endpointBase}itens/`, { 
         method: 'POST', 
         body: JSON.stringify(data) 
     });
@@ -86,7 +86,7 @@ export const createItemPlano = async (data: ItemPlanoCreate): Promise<ItemPlano>
 };
 
 export const updateItemPlano = async (itemId: string, data: Partial<ItemPlanoCreate>): Promise<ItemPlano> => {
-    const rawData = await fetchAPI<any>(serviceName, `${endpointBase}/itens/${itemId}`, { 
+    const rawData = await fetchAPI<any>(serviceName, `${endpointBase}itens/${itemId}`, { 
         method: 'PUT', 
         body: JSON.stringify(data) 
     });
@@ -94,5 +94,5 @@ export const updateItemPlano = async (itemId: string, data: Partial<ItemPlanoCre
 };
 
 export const deleteItemPlano = (itemId: string): Promise<null> => {
-    return fetchAPI<null>(serviceName, `${endpointBase}/itens/${itemId}`, { method: 'DELETE' });
+    return fetchAPI<null>(serviceName, `${endpointBase}itens/${itemId}`, { method: 'DELETE' });
 };
