@@ -83,3 +83,19 @@ export interface ReceitaCreate {
   pacienteId: string
   data_criacao?: string
 }
+
+
+export interface Receitaupdate {
+  id: string
+  nome: string
+  categoria: string
+  tempoPreparo: number
+  ingredientes: string[]
+  modoPreparo: string[]
+  nutricionistaId: string
+  pacienteId: string
+  data_criacao?: string
+}
+
+
+
