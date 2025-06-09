@@ -2,7 +2,7 @@ import fetchAPI from "../api-client"
 import type { Receita, ReceitaCreate, Receitaupdate } from "../models"
 
 const serviceName = "receitas"
-const endpointBase = "/api/receitas"
+const endpointBase = "/api/receitas/"
 
 export const getAllReceitas = async (): Promise<Receita[]> => {
   const result = await fetchAPI<Receita[]>(serviceName, endpointBase)
@@ -15,7 +15,7 @@ export const getAllReceitas = async (): Promise<Receita[]> => {
 }
 
 export const getReceitaById = async (id: string): Promise<Receita | null> => {
-  const result = await fetchAPI<Receita>(serviceName, `${endpointBase}/${id}`)
+  const result = await fetchAPI<Receita>(serviceName, `${endpointBase}${id}`)
 
   if (!result) {
     return getMockReceitaById(id)
@@ -32,19 +32,19 @@ export const createReceita = async (data: ReceitaCreate): Promise<Receita | null
 }
 
 export const updateReceita = async (id: string, data: Partial<Receitaupdate>): Promise<Receita | null> => {
-  return await fetchAPI<Receita>(serviceName, `${endpointBase}/${id}`, {
+  return await fetchAPI<Receita>(serviceName, `${endpointBase}${id}`, {
     method: "PUT",
     body: JSON.stringify(data),
   })
 }
 
 export const deleteReceita = async (id: string): Promise<boolean> => {
-  const result = await fetchAPI<null>(serviceName, `${endpointBase}/${id}`, { method: "DELETE" })
+  const result = await fetchAPI<null>(serviceName, `${endpointBase}${id}`, { method: "DELETE" })
   return result !== null
 }
 
 export const getReceitasDoPaciente = async (pacienteId: string): Promise<Receita[]> => {
-  const result = await fetchAPI<Receita[]>(serviceName, `${endpointBase}/paciente/${pacienteId}`)
+  const result = await fetchAPI<Receita[]>(serviceName, `${endpointBase}paciente/${pacienteId}`)
 
   if (!result) {
     return getMockReceitasPorPaciente(pacienteId)
@@ -54,7 +54,7 @@ export const getReceitasDoPaciente = async (pacienteId: string): Promise<Receita
 }
 
 export const getReceitasDoNutricionista = async (nutricionistaId: string): Promise<Receita[]> => {
-  const result = await fetchAPI<Receita[]>(serviceName, `${endpointBase}/nutricionista/${nutricionistaId}`)
+  const result = await fetchAPI<Receita[]>(serviceName, `${endpointBase}nutricionista/${nutricionistaId}`)
 
   if (!result) {
     return getMockReceitasPorNutricionista(nutricionistaId)
