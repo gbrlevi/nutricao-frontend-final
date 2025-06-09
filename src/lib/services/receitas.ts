@@ -2,7 +2,7 @@ import fetchAPI from "../api-client"
 import type { Receita, ReceitaCreate, Receitaupdate } from "../models"
 
 const serviceName = "receitas"
-const endpointBase = "/api/receitas/"
+const endpointBase = "/api/receitas"
 
 export const getAllReceitas = async (): Promise<Receita[]> => {
   const result = await fetchAPI<Receita[]>(serviceName, endpointBase)
