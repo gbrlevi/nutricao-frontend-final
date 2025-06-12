@@ -23,11 +23,14 @@ const mapId = (item: any) => {
 
 // === Funções para Plano Mestre ===
 
-export const getAllPlanosMestre = async (): Promise<PlanoMestre[]> => {
-    const rawData = await fetchAPI<any[]>(serviceName, endpointBase);
-    if (!rawData) return [];
-    // Mapeia cada item da lista para o formato correto
-    return rawData.map(mapId);
+export const getAllPlanosMestre = async (pacienteId?: string): Promise<PlanoMestre[]> => {
+  const query = pacienteId ? `?paciente_id=${pacienteId}` : ""
+  
+  const rawData = await fetchAPI<any[]>(serviceName, `${endpointBase}${query}`);
+  
+  if (!rawData) return [];
+
+  return rawData.map(plano => ({ ...plano, id: plano._id }));
 };
 
 // DEPOIS (CORRETO)

@@ -1,6 +1,6 @@
 // Configuração das URLs base dos microserviços
 const API_BASE_URLS = {
-    usuarios: process.env.NEXT_PUBLIC_USUARIOS_API_URL || 'http://localhost:3001',
+    usuarios: process.env.NEXT_PUBLIC_USUARIOS_API_URL || 'https://js-microservice-production.up.railway.app',
     planos: process.env.NEXT_PUBLIC_PLANOS_API_URL || 'https://python-microservice-production-33dc.up.railway.app',
     receitas: process.env.NEXT_PUBLIC_RECEITAS_API_URL || 'https://receitamicroservice.onrender.com',
 };
