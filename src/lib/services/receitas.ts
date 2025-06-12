@@ -1,5 +1,5 @@
 import fetchAPI from "../api-client"
-import type { Receita, ReceitaCreate } from "../models"
+import type { Receita, ReceitaCreate, Receitaupdate } from "../models"
 
 const serviceName = "receitas"
 const endpointBase = "/api/receitas"
@@ -31,7 +31,7 @@ export const createReceita = async (data: ReceitaCreate): Promise<Receita | null
   })
 }
 
-export const updateReceita = async (id: string, data: Partial<ReceitaCreate>): Promise<Receita | null> => {
+export const updateReceita = async (id: string, data: Partial<Receitaupdate>): Promise<Receita | null> => {
   return await fetchAPI<Receita>(serviceName, `${endpointBase}/${id}`, {
     method: "PUT",
     body: JSON.stringify(data),

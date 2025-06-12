@@ -6,13 +6,13 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Heart, Users, BookOpen, Calendar, Star, ArrowRight, CheckCircle } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
+
 
 // Importando as funções de todos os serviços
 import { getUsuarios } from "@/lib/services/usuarios"
 import { getAllPlanosMestre } from "@/lib/services/planos"
 import { getAllReceitas } from "@/lib/services/receitas"
-import type { Usuario, PlanoMestre, Receita } from "@/lib/models"
+
 
 export default function HomePage() {
   // Estados para armazenar os dados dos contadores
@@ -166,11 +166,11 @@ export default function HomePage() {
             </div>
             <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 lg:grid-cols-3 lg:gap-12">
               {/* Card de Depoimento 1 */}
-              <Card><CardHeader><div className="flex">{[...Array(5)].map((_, i) => (<Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />))}</div></CardHeader><CardContent><p className="text-gray-600 mb-4">"A plataforma revolucionou minha prática. Consigo criar planos personalizados rapidamente e meus pacientes adoram a facilidade de acesso."</p><div className="flex items-center gap-2"><div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"><span className="text-sm font-medium text-green-600">DR</span></div><div><p className="font-medium text-gray-900">Dra. Maria Silva</p><p className="text-sm text-gray-600">Nutricionista</p></div></div></CardContent></Card>
+              <Card><CardHeader><div className="flex">{[...Array(5)].map((_, i) => (<Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />))}</div></CardHeader><CardContent><p className="text-gray-600 mb-4">A plataforma revolucionou minha prática. Consigo criar planos personalizados rapidamente e meus pacientes adoram a facilidade de acesso.</p><div className="flex items-center gap-2"><div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"><span className="text-sm font-medium text-green-600">DR</span></div><div><p className="font-medium text-gray-900">Dra. Maria Silva</p><p className="text-sm text-gray-600">Nutricionista</p></div></div></CardContent></Card>
               {/* Card de Depoimento 2 */}
-              <Card><CardHeader><div className="flex">{[...Array(5)].map((_, i) => (<Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />))}</div></CardHeader><CardContent><p className="text-gray-600 mb-4">"Perdi 15kg seguindo os planos alimentares personalizados. As receitas são deliciosas e fáceis de preparar!"</p><div className="flex items-center gap-2"><div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"><span className="text-sm font-medium text-green-600">JS</span></div><div><p className="font-medium text-gray-900">João Santos</p><p className="text-sm text-gray-600">Paciente</p></div></div></CardContent></Card>
+              <Card><CardHeader><div className="flex">{[...Array(5)].map((_, i) => (<Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />))}</div></CardHeader><CardContent><p className="text-gray-600 mb-4">Perdi 15kg seguindo os planos alimentares personalizados. As receitas são deliciosas e fáceis de preparar!</p><div className="flex items-center gap-2"><div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"><span className="text-sm font-medium text-green-600">JS</span></div><div><p className="font-medium text-gray-900">João Santos</p><p className="text-sm text-gray-600">Paciente</p></div></div></CardContent></Card>
               {/* Card de Depoimento 3 */}
-              <Card><CardHeader><div className="flex">{[...Array(5)].map((_, i) => (<Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />))}</div></CardHeader><CardContent><p className="text-gray-600 mb-4">"Interface intuitiva e funcionalidades completas. Recomendo para todos os colegas nutricionistas."</p><div className="flex items-center gap-2"><div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"><span className="text-sm font-medium text-green-600">AC</span></div><div><p className="font-medium text-gray-900">Ana Costa</p><p className="text-sm text-gray-600">Nutricionista</p></div></div></CardContent></Card>
+              <Card><CardHeader><div className="flex">{[...Array(5)].map((_, i) => (<Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />))}</div></CardHeader><CardContent><p className="text-gray-600 mb-4">Interface intuitiva e funcionalidades completas. Recomendo para todos os colegas nutricionistas.</p><div className="flex items-center gap-2"><div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"><span className="text-sm font-medium text-green-600">AC</span></div><div><p className="font-medium text-gray-900">Ana Costa</p><p className="text-sm text-gray-600">Nutricionista</p></div></div></CardContent></Card>
             </div>
           </div>
         </section>
